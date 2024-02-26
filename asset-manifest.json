@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/static/js/main.fb3430c2.js",
-    "index.html": "/index.html",
-    "main.fb3430c2.js.map": "/static/js/main.fb3430c2.js.map"
+    "main.js": "/bahnminingfrontend/static/js/main.fb3430c2.js",
+    "index.html": "/bahnminingfrontend/index.html",
+    "main.fb3430c2.js.map": "/bahnminingfrontend/static/js/main.fb3430c2.js.map"
   },
   "entrypoints": [
     "static/js/main.fb3430c2.js"
