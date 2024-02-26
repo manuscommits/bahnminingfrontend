@@ -1,9 +1,10 @@
 import React from "react";
+import "./style.css"
 
 const App = () => {
   return (
-    <div className="app">
-      <h1>Hello World!</h1>
+    <div class="centered">
+      <span>Bahn Mining</span>
     </div>
   );
 }
