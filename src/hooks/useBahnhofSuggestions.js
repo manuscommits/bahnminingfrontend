@@ -2,6 +2,7 @@ import { useState } from "react"
 import fetchWithProxy from "../utils/bahnProxy"
 import useGetState from "./useGetState"
 
+// eslint-disable-next-line
 const exampleSuggestion = {
     "name": "Augsburg Hbf",
     "id": "A=1@O=Augsburg Hbf@X=10885568@Y=48365444@U=80@L=8000013@B=1@p=1709144512@i=U×008002140@",
