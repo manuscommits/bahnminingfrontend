@@ -1,5 +1,6 @@
 import { useState } from "react"
 import fetchWithProxy from "../utils/bahnProxy"
+import useGetState from "./useGetState"
 
 const exampleSuggestion = {
     "name": "Augsburg Hbf",
@@ -12,15 +13,9 @@ const fetchDelay = 500
 
 const useBahnhofSuggestions = () => {
     const [suggestions, setSuggestions] = useState([])
-    const [lastRequestTime, setLastRequestTime] = useState(0)
+    const [getLastRequestTime, setLastRequestTime] = useGetState(0)
 
-    const getLastRequestTime = () => {
-        var time;
-        setLastRequestTime((t) => { time = t; return t })
-        return time
-    }
-
-    const getSuggestions = async (searchString) => {
+    const getSuggestions = (searchString) => {
         setLastRequestTime(Date.now())
         if (!searchString.trim()) return
         setTimeout(() => {
@@ -30,13 +25,8 @@ const useBahnhofSuggestions = () => {
 
     const fetchSuggestions = async (searchString) => {
         if (Date.now() - getLastRequestTime() < fetchDelay) return
-        fetchWithProxy(`https://www.bahn.de/web/api/reiseloesung/orte?suchbegriff=${searchString}&typ=ALL&limit=10`)
-            .then(suggestions => {
-                return suggestions.map(suggestion => {
-                    suggestion["title"] = suggestion["name"]
-                    return suggestion
-                })
-            })
+        const transformedSearchString = encodeURI(searchString.replace(" ", "+"))
+        fetchWithProxy(`https://www.bahn.de/web/api/reiseloesung/orte?suchbegriff=${transformedSearchString}&typ=ALL&limit=10`)
             .then(setSuggestions)
     }
 
