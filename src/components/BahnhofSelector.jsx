@@ -1,4 +1,3 @@
-
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
@@ -11,13 +10,11 @@ const BahnhofSelector = () => {
     const { suggestions: vonSuggestions, getSuggestions: getVonSuggestions } = useBahnhofSuggestions()
     const { suggestions: nachSuggestions, getSuggestions: getNachSuggestions } = useBahnhofSuggestions()
 
-    console.log(value)
-
     return (
-        <Stack direction="row" spacing={3}>
+        <Stack direction="row" spacing={3} style={{ padding: 10 }}>
             <Autocomplete
                 id="abfahrt-bahnhof-input"
-                style={{width: 400}}
+                style={{ width: 400 }}
                 value={value}
                 onChange={(_, newValue) => setValue(newValue)}
                 onInputChange={(_, value) => getVonSuggestions(value)}
@@ -29,7 +26,7 @@ const BahnhofSelector = () => {
             />
             <Autocomplete
                 id="ankunft-bahnhof-input"
-                style={{width: 400}}
+                style={{ width: 400 }}
                 onInputChange={(_, value) => getNachSuggestions(value)}
                 options={nachSuggestions}
                 getOptionLabel={(option) => option["name"]}
