@@ -13,6 +13,8 @@ const DateTimePicker = () => {
     useEffect(() => {
         if (abfahrtsDatum && abfahrtsZeit) {
             dispatch(setAnfrageZeitpunkt(abfahrtsDatum + "T" + abfahrtsZeit))
+        } else {
+            dispatch(setAnfrageZeitpunkt(null))
         }
     }, [dispatch, abfahrtsDatum, abfahrtsZeit])
 
