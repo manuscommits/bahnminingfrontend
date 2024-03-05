@@ -2,11 +2,11 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import useBahnhofSuggestions from '../hooks/useBahnhofSuggestions';
-import { useState } from 'react';
+import { useDispatch } from 'react-redux'
+import { setAbfahrtsHalt, setAnkunftsHalt } from '../redux/verbindungsanfrageSlice';
 
 const BahnhofSelector = () => {
-    const [value, setValue] = useState(null);
-
+    const dispatch = useDispatch()
     const { suggestions: vonSuggestions, getSuggestions: getVonSuggestions } = useBahnhofSuggestions()
     const { suggestions: nachSuggestions, getSuggestions: getNachSuggestions } = useBahnhofSuggestions()
 
@@ -15,8 +15,7 @@ const BahnhofSelector = () => {
             <Autocomplete
                 id="abfahrt-bahnhof-input"
                 style={{ width: 400 }}
-                value={value}
-                onChange={(_, newValue) => setValue(newValue)}
+                onChange={(_, newValue) => dispatch(setAbfahrtsHalt(newValue))}
                 onInputChange={(_, value) => getVonSuggestions(value)}
                 options={vonSuggestions}
                 getOptionLabel={(option) => option["name"]}
@@ -27,6 +26,7 @@ const BahnhofSelector = () => {
             <Autocomplete
                 id="ankunft-bahnhof-input"
                 style={{ width: 400 }}
+                onChange={(_, newValue) => dispatch(setAnkunftsHalt(newValue))}
                 onInputChange={(_, value) => getNachSuggestions(value)}
                 options={nachSuggestions}
                 getOptionLabel={(option) => option["name"]}

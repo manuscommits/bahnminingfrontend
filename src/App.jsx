@@ -5,7 +5,9 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
 import Verbindungssuche from "./components/Verbindungssuche"
 import { ThemeProvider, createTheme } from "@mui/material"
 import Header from "./components/Header"
+import store from './redux/store'
 
+import { Provider } from 'react-redux'
 const App = () => {
   const theme = createTheme({
     palette: {
@@ -19,14 +21,16 @@ const App = () => {
   })
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <ThemeProvider theme={theme}>
-        <div className="centered">
-          <Header />
-          <Verbindungssuche />
-        </div>
-      </ThemeProvider>
-    </LocalizationProvider>
+    <Provider store={store}>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <ThemeProvider theme={theme}>
+          <div className="centered">
+            <Header />
+            <Verbindungssuche />
+          </div>
+        </ThemeProvider>
+      </LocalizationProvider>
+    </Provider>
   );
 }
 
