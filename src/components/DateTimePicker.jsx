@@ -7,27 +7,26 @@ import dayjs from 'dayjs';
 
 const DateTimePicker = () => {
     const dispatch = useDispatch()
-    const [abfahrtsdatum, setAbfahrtsdatum] = useState()
-    const [abfahrtszeit, setAbfahrtszeit] = useState()
-    console.log(abfahrtsdatum, abfahrtszeit)
+    const [abfahrtsDatum, setAbfahrtsDatum] = useState()
+    const [abfahrtsZeit, setAbfahrtsZeit] = useState()
 
     useEffect(() => {
-        if (abfahrtsdatum && abfahrtszeit) {
-            dispatch(setAnfrageZeitpunkt(abfahrtsdatum + "T" + abfahrtszeit))
+        if (abfahrtsDatum && abfahrtsZeit) {
+            dispatch(setAnfrageZeitpunkt(abfahrtsDatum + "T" + abfahrtsZeit))
         }
-    }, [abfahrtsdatum, abfahrtszeit])
+    }, [dispatch, abfahrtsDatum, abfahrtsZeit])
 
     return (
         <Stack direction="row" spacing={3} style={{ padding: 10 }}>
             <DatePicker
                 label="Abfahrtsdatum"
                 format="DD.MM.YYYY"
-                onChange={(newValue) => setAbfahrtsdatum(dayjs(newValue).format("YYYY-MM-DD"))}
+                onChange={(newValue) => setAbfahrtsDatum(dayjs(newValue).format("YYYY-MM-DD"))}
             />
             <TimePicker
                 label="Uhrzeit"
                 ampm={false}
-                onChange={(newValue) => setAbfahrtszeit(dayjs(newValue).format("HH:mm:00"))}
+                onChange={(newValue) => setAbfahrtsZeit(dayjs(newValue).format("HH:mm:00"))}
             />
         </Stack>
     )
