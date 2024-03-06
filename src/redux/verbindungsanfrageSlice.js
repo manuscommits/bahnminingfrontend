@@ -7,7 +7,8 @@ export const verbindungsanfrageSlice = createSlice({
         ankunftsHalt: "",
         anfrageZeitpunkt: "",
         nurDirektverbindungen: false,
-        pagingReference: ""
+        pagingReference: "",
+        response: null
     },
     reducers: {
         setAbfahrtsHalt: (state, action) => {
@@ -24,10 +25,13 @@ export const verbindungsanfrageSlice = createSlice({
         },
         setPagingReference: (state, action) => {
             state.pagingReference = action.payload
+        },
+        setResponse: (state, action) => {
+            state.response = action.payload
         }
     },
 })
 
-export const { setAbfahrtsHalt, setAnkunftsHalt, setAnfrageZeitpunkt, setNurDirektverbindungen, setPagingReference } = verbindungsanfrageSlice.actions
+export const { setAbfahrtsHalt, setAnkunftsHalt, setAnfrageZeitpunkt, setNurDirektverbindungen, setPagingReference, setResponse } = verbindungsanfrageSlice.actions
 
 export default verbindungsanfrageSlice.reducer
