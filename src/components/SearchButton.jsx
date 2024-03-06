@@ -1,7 +1,8 @@
 import { Button, Stack } from "@mui/material"
+import useFetchFahrplan from "../hooks/useFetchFahrplan"
 
 const SearchButton = () => {
-     
+    const fetchFahrplan = useFetchFahrplan()
     return (
         <Stack style={{ padding: 10 }}>
             <Button
@@ -10,7 +11,7 @@ const SearchButton = () => {
                 size="large"
                 disableElevation
                 style={{ textTransform: 'none', fontSize: 20 }}
-                onClick={() => {}}
+                onClick={fetchFahrplan}
             >
                 Suchen
             </Button>
