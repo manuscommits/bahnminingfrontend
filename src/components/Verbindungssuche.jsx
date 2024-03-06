@@ -2,15 +2,16 @@ import DateTimePicker from "./DateTimePicker"
 import BahnhofSelector from "./BahnhofSelector"
 import SearchButton from "./SearchButton"
 import VerbindungenAnzeige from "./VerbindungenAnzeige"
+import { Stack } from "@mui/material"
 
 const RequestInput = () => {
     return (
-        <div>
+        <Stack maxWidth={1000}>
             <BahnhofSelector />
             <DateTimePicker />
             <SearchButton />
             <VerbindungenAnzeige />
-        </div>
+        </Stack>
     )
 }
 
