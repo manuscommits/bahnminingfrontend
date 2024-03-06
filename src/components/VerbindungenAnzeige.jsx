@@ -10,7 +10,7 @@ const VerbindungenAnzeige = () => {
     return (
         <Stack direction="column">
             {recons.map(recon =>
-                <VerbindungAnzeige recon={recon} />
+                <VerbindungAnzeige recon={recon} key={recon} />
             )}
         </Stack>
     )
