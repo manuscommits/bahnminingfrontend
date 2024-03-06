@@ -3,6 +3,7 @@ import useFetchFahrplan from "../hooks/useFetchFahrplan"
 
 const SearchButton = () => {
     const fetchFahrplan = useFetchFahrplan()
+    
     return (
         <Stack style={{ padding: 10 }}>
             <Button
