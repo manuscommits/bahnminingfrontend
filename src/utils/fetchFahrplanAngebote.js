@@ -49,7 +49,6 @@ const fetchFahrplanAngebote = (abfahrtsHalt, ankunftsHalt, anfrageZeitpunkt, nur
     }
 
     return fetchWithProxy(url, options)
-        .then(response => response.json())
 }
 
 export default fetchFahrplanAngebote
