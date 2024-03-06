@@ -1,13 +1,17 @@
-import { Box, Stack } from "@mui/material"
+import { Stack } from "@mui/material"
+import { useSelector } from "react-redux"
+import VerbindungAnzeige from "./VerbindungAnzeige"
 
 const VerbindungenAnzeige = () => {
-    const recons = []
+    const response = useSelector((state) => state.verbindungsanfrage.response) || {}
+    const verbindungen = response["verbindungen"] || []
+    const recons = verbindungen.map(verbindung => verbindung["ctxRecon"])
 
     return (
-        <Stack>
-            {recons.map(recon => {
-                <Box>{recon}</Box>
-            })}
+        <Stack direction="column">
+            {recons.map(recon =>
+                <VerbindungAnzeige recon={recon} />
+            )}
         </Stack>
     )
 }
