@@ -20,9 +20,7 @@ const VerbindungAnzeige = ({ recon }) => {
     const [expanded, setExpanded] = useState(false);
     const dispatch = useDispatch()
     const verbindungsAbschnitte = parseRecon(recon) || []
-    const abfahrtsHalt = verbindungsAbschnitte[0]["abfahrtsHalt"]
     const abfahrtsZeit = verbindungsAbschnitte[0]["abfahrtsZeit"]
-    const ankunftsHalt = verbindungsAbschnitte[verbindungsAbschnitte.length - 1]["ankunftsHalt"]
     const ankunftsZeit = verbindungsAbschnitte[verbindungsAbschnitte.length - 1]["ankunftsZeit"]
     const durationHours = ankunftsZeit.diff(abfahrtsZeit, "hour")
     const durationMinutes = ankunftsZeit.diff(abfahrtsZeit, "minute") % 60
