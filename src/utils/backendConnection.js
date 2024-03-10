@@ -1,8 +1,12 @@
-const baseUrl = "http://localhost:4000"
+import { getFetch, postFetch } from "./fetcher"
 
-const fetchRecons = () => {
-    return fetch(baseUrl + "/loadRecons")
-        .then(response => response.json())
+const fetchRecons = async () => {
+    return await getFetch("/loadRecons")
 }
 
-export { fetchRecons } 
+const fetchPriceHistory = async (recon) => {
+    const body = { recon }
+    return await postFetch("/priceHistory", body)
+}
+
+export { fetchRecons, fetchPriceHistory } 
