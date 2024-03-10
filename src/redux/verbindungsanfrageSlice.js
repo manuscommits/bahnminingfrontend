@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import dayjs from 'dayjs'
 
-console.log()
-
 const initialState = {
     abfahrtsHalt: {
         "name": "Frankfurt(Main)Hbf",
@@ -19,7 +17,8 @@ const initialState = {
     anfrageZeitpunkt: dayjs().format("YYYY-MM-DDTHH:mm:00"),
     nurDirektverbindungen: false,
     pagingReference: "",
-    response: null
+    response: null,
+    selectedRecon: null
 }
 
 export const verbindungsanfrageSlice = createSlice({
@@ -43,10 +42,21 @@ export const verbindungsanfrageSlice = createSlice({
         },
         setResponse: (state, action) => {
             state.response = action.payload
+        },
+        setSelectedRecon: (state, action) => {
+            state.selectedRecon = action.payload
         }
     },
 })
 
-export const { setAbfahrtsHalt, setAnkunftsHalt, setAnfrageZeitpunkt, setNurDirektverbindungen, setPagingReference, setResponse } = verbindungsanfrageSlice.actions
+export const {
+    setAbfahrtsHalt,
+    setAnkunftsHalt,
+    setAnfrageZeitpunkt,
+    setNurDirektverbindungen,
+    setPagingReference,
+    setResponse,
+    setSelectedRecon
+} = verbindungsanfrageSlice.actions
 
 export default verbindungsanfrageSlice.reducer

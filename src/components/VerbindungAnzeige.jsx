@@ -1,7 +1,10 @@
-import { Box, Card } from "@mui/material"
+import { Box, Button, Card } from "@mui/material"
 import { parseRecon } from "../utils/reconHelper"
+import { useDispatch } from "react-redux"
+import { setSelectedRecon } from "../redux/verbindungsanfrageSlice"
 
 const VerbindungAnzeige = ({ recon }) => {
+    const dispatch = useDispatch()
     const verbindungsAbschnitte = parseRecon(recon)
 
     return (
@@ -12,6 +15,9 @@ const VerbindungAnzeige = ({ recon }) => {
                     <Box>{verbindungsAbschnitt["ankunftsZeit"].format("HH:mm") + " - " + verbindungsAbschnitt["ankunftsHalt"]}</Box>
                 </Box>
             )}
+            <Box>
+                <Button onClick={() => dispatch(setSelectedRecon(recon))}>Select</Button>
+            </Box>
         </Card>
     )
 }
