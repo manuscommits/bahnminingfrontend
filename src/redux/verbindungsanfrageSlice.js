@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import dayjs from 'dayjs'
 
 const initialState = {
     abfahrtsHalt: {
@@ -14,7 +13,7 @@ const initialState = {
         "extId": "8000261",
         "type": "ST"
     },
-    anfrageZeitpunkt: dayjs().format("YYYY-MM-DDTHH:mm:00"),
+    anfrageZeitpunkt: "2024-05-20T01:17:00",
     nurDirektverbindungen: false,
     pagingReference: "",
     response: null,
