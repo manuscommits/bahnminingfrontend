@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import fetchFahrplanAngebote from "../utils/fetchFahrplanAngebote"
-import { setResponse } from "../redux/verbindungsanfrageSlice"
+import { setResponse, setSelectedRecon } from "../redux/verbindungsanfrageSlice"
 import { useState } from "react"
 
 const useFetchFahrplan = () => {
@@ -12,6 +12,7 @@ const useFetchFahrplan = () => {
         if (abfahrtsHalt && ankunftsHalt && anfrageZeitpunkt) {
             setLoading(true)
             dispatch(setResponse(null))
+            dispatch(setSelectedRecon(null))
             fetchFahrplanAngebote(abfahrtsHalt.id, ankunftsHalt.id, anfrageZeitpunkt, nurDirektverbindungen, pagingReference)
                 .then(response => dispatch(setResponse(response)))
                 .finally(() => setLoading(false))
