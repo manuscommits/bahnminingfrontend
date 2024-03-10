@@ -2,7 +2,7 @@ const baseUrl = "http://localhost:4000"
 
 const getFetch = async (path) => {
     console.log("GET " + path)
-    return await fetch(baseUrl + "/" + path)
+    return await fetch(baseUrl + path)
         .then(response => response.json())
 }
 
@@ -15,7 +15,7 @@ const postFetch = async (path, body) => {
         },
         body: JSON.stringify(body)
     }
-    return await fetch(baseUrl + "/" + path, requestOptions)
+    return await fetch(baseUrl + path, requestOptions)
         .then(response => response.json())
 }
 
