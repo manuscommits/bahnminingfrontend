@@ -35,7 +35,7 @@ const VerbindungAnzeige = ({ recon }) => {
 
     return (
         <Card style={{ marginTop: 8, marginBottom: 8 }}>
-            <CardContent>
+            <CardContent sx={{paddingTop: 1.5, paddingBottom: 0}}>
                 <Typography variant="h6" display="inline" fontWeight="bold">
                     {abfahrtsZeit.format("HH:mm") + " - " + ankunftsZeit.format("HH:mm")}
                 </Typography>
