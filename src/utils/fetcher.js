@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:4000"
+const baseUrl = "https://weevil-optimum-eagerly.ngrok-free.app"
 
 const getFetch = async (path) => {
     console.log("GET " + path)
