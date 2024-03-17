@@ -1,13 +1,11 @@
 const baseUrl = "https://weevil-optimum-eagerly.ngrok-free.app"
 
 const getFetch = async (path) => {
-    console.log("GET " + path)
     return await fetch(baseUrl + path)
         .then(response => response.json())
 }
 
 const postFetch = async (path, body) => {
-    console.log("POST " + path)
     const requestOptions = {
         method: "POST",
         headers: {
