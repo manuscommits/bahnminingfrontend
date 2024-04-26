@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/bahnminingfrontend/static/css/main.6bc84c68.css",
-    "main.js": "/bahnminingfrontend/static/js/main.7b13daae.js",
+    "main.js": "/bahnminingfrontend/static/js/main.d13c3449.js",
     "index.html": "/bahnminingfrontend/index.html",
     "main.6bc84c68.css.map": "/bahnminingfrontend/static/css/main.6bc84c68.css.map",
-    "main.7b13daae.js.map": "/bahnminingfrontend/static/js/main.7b13daae.js.map"
+    "main.d13c3449.js.map": "/bahnminingfrontend/static/js/main.d13c3449.js.map"
   },
   "entrypoints": [
     "static/css/main.6bc84c68.css",
-    "static/js/main.7b13daae.js"
+    "static/js/main.d13c3449.js"
   ]
 }
