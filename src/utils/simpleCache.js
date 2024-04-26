@@ -2,11 +2,10 @@ const simpleCache = (func) => {
     const cache = {}
     const wrapperFunction = async (input) => {
         if (input in cache) {
-            return cache[input]
+            return await cache[input]
         }
-        const result = await func(input)
-        cache[input] = result
-        return result
+        cache[input] = func(input)
+        return await cache[input]
     }
     return wrapperFunction
 }
