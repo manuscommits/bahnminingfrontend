@@ -6,7 +6,7 @@ const useReconPriceHistory = (recon) => {
 
     useEffect(() => {
         if (!recon) return
-        fetchPriceHistory(recon).then(setReconPriceHistory)
+        fetchPriceHistory(recon).then(setReconPriceHistory).catch(() => setReconPriceHistory(null))
     }, [recon])
 
     return reconPriceHistory

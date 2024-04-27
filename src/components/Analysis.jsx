@@ -17,7 +17,7 @@ const Analysis = () => {
     Array(priceHistory.length - 1).fill(null).forEach(_ => {
         xAxisValues.push(dayjs(xAxisValues[xAxisValues.length - 1]).add(1, "day").unix() * 1000)
     })
-    
+
     return (
         <Box>
             <Chart xAxisValues={xAxisValues} yAxisValues={priceHistory} />
